@@ -1,13 +1,52 @@
 <div ng-controller="HomeCtrl">
-  <div class="row">
-    <div class="col-md-4 tree-browser">
-      <js-tree tree-events="select_node:nodeSelected" tree-ajax="/api/tree"></js-tree>
-    </div>
-    <div class="col-md-8 file-viewer">
-      
-      <pre><code>{{fileViewer}}</code></pre>
+    <div class="row">
+        <div class="col-md-3 tree-browser">
+            <js-tree tree-events="select_node:nodeSelected" tree-ajax="/api/tree"></js-tree>
+        </div>
+        <div class="col-md-9 file-viewer">
+            <table>
+                <tr>
+                    <td>제목</td>
+                    <td>
+                        <input type="text" id="twTitle"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>설명</td>
+                    <td>
+                        <textarea id="twDescription"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>연결파일</td>
+                    <td>
+                        <input type="text" id="twConnectPath"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div>모델</div>
+                        <div>
+                            네비게이션이 들어간 탭리스트와 상세내용들
+                            atom 에디터를 내장하여 json을 수정할 수 있도록 하여야 함.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button id="twSave">
+                            저장
+                        </button>
+                        <button id="twLoad">
+                            렌더링
+                        </button>
+                    </td>
+                </tr>
+            </table>
 
+            <!--<pre><code>{{fileViewer}}</code></pre>-->
+
+        </div>
     </div>
-  </div>
 
 </div>
