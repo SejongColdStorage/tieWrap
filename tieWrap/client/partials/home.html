@@ -8,6 +8,7 @@
         <div class="config-viewer col-md-10" ng-if="configViewer != null">
             <h2>
                 <div class="pull-right">
+                    {{configViewer.title}}
                     <a href="http://thejackalofjavascript.com/file-browser-with-jstree-angularjs-and-expressjs"
                        target="_blank" class="btn btn-info">렌더링 결과 보기</a>
                 </div>
@@ -26,7 +27,7 @@
                     </label>
 
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="configInputTitle" placeholder="제목을 입력하세요.">
+                        <input type="text" class="form-control" id="configInputTitle" placeholder="제목을 입력하세요." ng-model="configViewer.title" value="">
                     </div>
                 </div>
 
@@ -36,7 +37,7 @@
                     </label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" id="configInputDescription" rows="3"></textarea>
+                        <textarea class="form-control" id="configInputDescription" rows="3">{{configViewer.description}}</textarea>
                     </div>
                 </div>
 
@@ -48,7 +49,7 @@
 
                     <div class="col-md-10">
                         <input type="text" class="form-control" id="configInputConnectPath"
-                               placeholder="연결경로를 입력해 주세요.">
+                               placeholder="연결경로를 입력해 주세요." ng-model="configViewer.templatePath">
                     </div>
                 </div>
 
@@ -61,16 +62,19 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#home" role="tab" data-toggle="tab">기본모델</a></li>
-                            <li><a href="#profile" role="tab" data-toggle="tab">렌탈상품</a></li>
-                            <li><a href="#messages" role="tab" data-toggle="tab">딜 모델</a></li>
-                            <li><a href="#messages" role="tab" data-toggle="tab"><span
-                                    class="glyphicon glyphicon-plus"></span></a></li>
+                            <li role="presentation" ng-repeat="model in configViewer.models">
+                                <a href="#{{model.key}}" role="tab" data-toggle="tab" aria-controls="_{{model.key}}">{{model.key}}</a>
+                            </li>
+                            <li>
+                                <a class="model-tab-add" href="#add" role="tab">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane active" id="home">...</div>
+                            <div class="tab-pane" id="home">...</div>
                             <div class="tab-pane" id="profile">...</div>
                             <div class="tab-pane" id="messages">...</div>
                             <div class="tab-pane" id="settings">...</div>
