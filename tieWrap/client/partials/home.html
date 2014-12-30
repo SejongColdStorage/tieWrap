@@ -62,7 +62,7 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" ng-repeat="model in configViewer.models">
+                            <li role="presentation" ng-repeat="model in configViewer.models" ng-class="{active: $first}">
                                 <a href="#{{model.key}}" role="tab" data-toggle="tab" aria-controls="_{{model.key}}">{{model.key}}</a>
                             </li>
                             <li>
@@ -74,10 +74,8 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane" id="home">...</div>
-                            <div class="tab-pane" id="profile">...</div>
-                            <div class="tab-pane" id="messages">...</div>
-                            <div class="tab-pane" id="settings">...</div>
+                            <div ng-repeat="model in configViewer.models" ng-class="{active: $first}" class="tab-pane" id="_{{model.key}}">{{model.value}}</div>
+
                         </div>
                     </div>
                 </div>
