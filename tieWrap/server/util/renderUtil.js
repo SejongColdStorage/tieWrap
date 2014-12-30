@@ -24,7 +24,7 @@
             "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]
         };
 
-        console.log(render(template, data))
+        console.log(render(template, data));
     }
 
     //일단 테스트!

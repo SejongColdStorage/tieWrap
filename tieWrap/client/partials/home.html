@@ -1,15 +1,15 @@
 <div ng-controller="HomeCtrl">
+
     <div class="row">
         <div class="col-md-2 tree-browser">
             <js-tree tree-events="select_node:nodeSelected" tree-ajax="/api/tree"></js-tree>
         </div>
 
-        <div class="config-viewer col-md-10">
+        <div class="config-viewer col-md-10" ng-if="configViewer != null">
             <h2>
-                제목입니다.
-
                 <div class="pull-right">
-                    <a href="http://thejackalofjavascript.com/file-browser-with-jstree-angularjs-and-expressjs" target="_blank" class="btn btn-info">렌더링 결과 보기</a>
+                    <a href="http://thejackalofjavascript.com/file-browser-with-jstree-angularjs-and-expressjs"
+                       target="_blank" class="btn btn-info">렌더링 결과 보기</a>
                 </div>
                 <div class="pull-right">
                     <select class="form-control">
@@ -64,33 +64,13 @@
                             <li class="active"><a href="#home" role="tab" data-toggle="tab">기본모델</a></li>
                             <li><a href="#profile" role="tab" data-toggle="tab">렌탈상품</a></li>
                             <li><a href="#messages" role="tab" data-toggle="tab">딜 모델</a></li>
-                            <li><a href="#messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
+                            <li><a href="#messages" role="tab" data-toggle="tab"><span
+                                    class="glyphicon glyphicon-plus"></span></a></li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane active" id="home">
-                                <pre><code>
-{
-    "title": "Example Schema",
-    "type": "object",
-    "properties": {
-        "firstName": {
-           "type": "string"
-        },
-        "lastName": {
-            "type": "string"
-        },
-        "age": {
-            "description": "Age in years",
-            "type": "integer",
-            "minimum": 0
-        }
-    },
-    "required": ["firstName", "lastName"]
-}</code></pre>
-                            </div>
-
+                            <div class="tab-pane active" id="home">...</div>
                             <div class="tab-pane" id="profile">...</div>
                             <div class="tab-pane" id="messages">...</div>
                             <div class="tab-pane" id="settings">...</div>
@@ -98,10 +78,20 @@
                     </div>
                 </div>
             </form>
-
-            <!--<pre><code>{{fileViewer}}</code></pre>-->
+            <!-- .form-horizontal-->
 
         </div>
-    </div>
+        <!-- .config-viewer-->
 
-</div>
+        <div class="config-viewer col-md-10" ng-if="configViewer == null">
+            <div class="well well-lg">
+                설정 파일을 선택해주세요.<br/>
+                또는 옳바른 설정 파일이 아닙니다.
+            </div>
+        </div>
+
+    </div>
+    <!-- .row-->
+
+
+</div><!-- [ng-controller="HomeCtrl"]-->
