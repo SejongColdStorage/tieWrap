@@ -7,17 +7,19 @@
 
         <div class="config-viewer col-md-10" ng-if="configViewer != null">
             <h2>
+                {{configViewer.title}}
                 <div class="pull-right">
-                    {{configViewer.title}}
-                    <a href="http://thejackalofjavascript.com/file-browser-with-jstree-angularjs-and-expressjs"
-                       target="_blank" class="btn btn-info">렌더링 결과 보기</a>
+                    <span class="col-xs-6">
+                        <select class="form-control">
+                            <option>기본모델</option>
+                            <option>렌탈상품</option>
+                        </select>
+                    </span>
+                    <span class="col-xs-6 input-group-btn">
+                        <a href="#" target="_blank" class="btn btn-info">렌더링 결과 보기</a>
+                    </span>
                 </div>
-                <div class="pull-right">
-                    <select class="form-control">
-                        <option>기본모델</option>
-                        <option>렌탈상품</option>
-                    </select>
-                </div>
+
             </h2>
             <hr/>
             <form class="form-horizontal" role="form">
@@ -27,7 +29,8 @@
                     </label>
 
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="configInputTitle" placeholder="제목을 입력하세요." ng-model="configViewer.title" value="">
+                        <input type="text" class="form-control" id="configInputTitle" placeholder="제목을 입력하세요."
+                               ng-model="configViewer.title" value="">
                     </div>
                 </div>
 
@@ -37,7 +40,8 @@
                     </label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" id="configInputDescription" rows="3">{{configViewer.description}}</textarea>
+                        <textarea class="form-control" id="configInputDescription"
+                                  rows="3">{{configViewer.description}}</textarea>
                     </div>
                 </div>
 
@@ -62,7 +66,8 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" ng-repeat="model in configViewer.models" ng-class="{active: $first}">
+                            <li role="presentation" ng-repeat="model in configViewer.models"
+                                ng-class="{active: $first}">
                                 <a href="#{{model.key}}" role="tab" data-toggle="tab" aria-controls="_{{model.key}}">{{model.key}}</a>
                             </li>
                             <li>
@@ -74,8 +79,10 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div ng-repeat="model in configViewer.models" ng-class="{active: $first}" class="tab-pane" id="_{{model.key}}">{{model.value}}</div>
-
+                            <div ng-repeat="model in configViewer.models" ng-class="{active: $first}" class="tab-pane"
+                                 id="_{{model.key}}">
+                                <pre><code>{{model.value}}</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
