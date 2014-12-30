@@ -4,6 +4,8 @@
     var path = require('path');
     var handlebars = require('handlebars');
 
+    //TODO 추후 템플릿 엔진은 선택이 가능하도록 하기
+    //또는 설정파일을 통해서 작업할 수 있도록 만들 것.
     function render(tempalte, data) {
 
         var template = handlebars.compile(tempalte);
@@ -26,8 +28,6 @@
     }
 
     //일단 테스트!
-    test();
-
-
+    //test();
 
 }());

@@ -1,48 +1,103 @@
 <div ng-controller="HomeCtrl">
     <div class="row">
-        <div class="col-md-3 tree-browser">
+        <div class="col-md-2 tree-browser">
             <js-tree tree-events="select_node:nodeSelected" tree-ajax="/api/tree"></js-tree>
         </div>
-        <div class="col-md-9 file-viewer">
-            <table>
-                <tr>
-                    <td>제목</td>
-                    <td>
-                        <input type="text" id="twTitle"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>설명</td>
-                    <td>
-                        <textarea id="twDescription"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>연결파일</td>
-                    <td>
-                        <input type="text" id="twConnectPath"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div>모델</div>
-                        <div>
-                            네비게이션이 들어간 탭리스트와 상세내용들
-                            atom 에디터를 내장하여 json을 수정할 수 있도록 하여야 함.
+
+        <div class="config-viewer col-md-10">
+            <h2>
+                제목입니다.
+
+                <div class="pull-right">
+                    <a href="http://thejackalofjavascript.com/file-browser-with-jstree-angularjs-and-expressjs" target="_blank" class="btn btn-info">렌더링 결과 보기</a>
+                </div>
+                <div class="pull-right">
+                    <select class="form-control">
+                        <option>기본모델</option>
+                        <option>렌탈상품</option>
+                    </select>
+                </div>
+            </h2>
+            <hr/>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="configInputTitle" class="col-md-2 control-label">
+                        제목
+                    </label>
+
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="configInputTitle" placeholder="제목을 입력하세요.">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="configInputDescription" class="col-md-2 control-label">
+                        설명
+                    </label>
+
+                    <div class="col-md-10">
+                        <textarea class="form-control" id="configInputDescription" rows="3"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="configInputConnectPath" class="col-md-2 control-label">
+                        템플릿 경로
+                    </label>
+
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="configInputConnectPath"
+                               placeholder="연결경로를 입력해 주세요.">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">
+                        모델 설정
+                    </label>
+
+                    <div class="col-md-10">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#home" role="tab" data-toggle="tab">기본모델</a></li>
+                            <li><a href="#profile" role="tab" data-toggle="tab">렌탈상품</a></li>
+                            <li><a href="#messages" role="tab" data-toggle="tab">딜 모델</a></li>
+                            <li><a href="#messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home">
+                                <pre><code>
+{
+    "title": "Example Schema",
+    "type": "object",
+    "properties": {
+        "firstName": {
+           "type": "string"
+        },
+        "lastName": {
+            "type": "string"
+        },
+        "age": {
+            "description": "Age in years",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": ["firstName", "lastName"]
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="profile">...</div>
+                            <div class="tab-pane" id="messages">...</div>
+                            <div class="tab-pane" id="settings">...</div>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button id="twSave">
-                            저장
-                        </button>
-                        <button id="twLoad">
-                            렌더링
-                        </button>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+            </form>
 
             <!--<pre><code>{{fileViewer}}</code></pre>-->
 
