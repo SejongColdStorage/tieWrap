@@ -1,6 +1,8 @@
 {
   "title": "제목",
   "description": "상세 설명",
-  "connectPath": "연결 경로",
-  "models": [{"key" : "value"}]
+  "templatePath": "연결 경로",
+  "models": [
+    {"key" : "key", "value" : "value"}
+  ]
 }
