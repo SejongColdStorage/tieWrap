@@ -3,6 +3,9 @@
   "description": "상세 설명",
   "templatePath": "연결 경로",
   "models": [
-    {"key" : "key", "value" : "value"}
+    {
+      "key": "key",
+      "value": "{\"name\" : \"Sejong\"}"
+    }
   ]
 }

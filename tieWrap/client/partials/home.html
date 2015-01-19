@@ -11,15 +11,13 @@
                 <div class="pull-right">
                     <span class="col-xs-6">
                         <select class="form-control">
-                            <option>기본모델</option>
-                            <option>렌탈상품</option>
+                            <option ng-repeat="model in configViewer.models">{{model.key}}</option>
                         </select>
                     </span>
                     <span class="col-xs-6 input-group-btn">
                         <a href="#" target="_blank" class="btn btn-info">렌더링 결과 보기</a>
                     </span>
                 </div>
-
             </h2>
             <hr/>
             <form class="form-horizontal" role="form">

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
     var express = require('express');
     var router = express.Router();
@@ -7,13 +7,13 @@
 
 
     /* GET home page. */
-    router.get('/', function(req, res) {
+    router.get('/', function (req, res) {
         res.render('index');
     });
 
 
     /* Serve the Tree */
-    router.get('/api/tree', function(req, res) {
+    router.get('/api/tree', function (req, res) {
         var _p;
 
         if (req.query.id == 1) {
@@ -32,14 +32,14 @@
 
 
     /* Serve a Resource */
-    router.get('/api/resource', function(req, res) {
+    router.get('/api/resource', function (req, res) {
         res.send(fs.readFileSync(req.query.resource, 'UTF-8'));
     });
 
 
     function processReq(_p, res) {
         var resp = [];
-        fs.readdir(_p, function(err, list) {
+        fs.readdir(_p, function (err, list) {
             for (var i = list.length - 1; i >= 0; i--) {
                 resp.push(processNode(_p, list[i]));
             }
@@ -47,13 +47,12 @@
         });
     }
 
-
     function processNode(_p, f) {
         var s = fs.statSync(path.join(_p, f));
         return {
             "id": path.join(_p, f),
             "text": f,
-            "icon" : s.isDirectory() ? 'jstree-custom-folder' : 'jstree-custom-file',
+            "icon": s.isDirectory() ? 'jstree-custom-folder' : 'jstree-custom-file',
             "state": {
                 "opened": false,
                 "disabled": false,

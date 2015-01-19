@@ -8,6 +8,7 @@
   var bodyParser = require('body-parser');
 
   var routes = require('./routes.js');
+  var tiewrapRenderRoutes = require('./tiewrapRenderRoutes.js');
 
   var app = express();
 
@@ -26,6 +27,8 @@
   app.use(express.static(path.join(__dirname, '../client')));
 
   app.use('/', routes);
+
+  app.use('/render', tiewrapRenderRoutes);
 
   app.set('port', process.env.PORT || 3000);
 
